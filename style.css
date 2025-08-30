@@ -1,0 +1,342 @@
+/* Definindo as variáveis de cor e fontes para facilitar a manutenção */
+:root {
+    --cor-fundo: #FFF3DE;
+    --cor-principal: #5A7963;
+    --cor-card-claro: #FFFFFF;
+    --cor-texto: #333333;
+    --cor-destaque: #c9544c;
+    --fonte-titulo: 'Courier', monospace;
+    --fonte-corpo: 'Kode Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    font-family: var(--fonte-corpo);
+    color: var(--cor-texto);
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Cabeçalho */
+header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+header h1 {
+    font-family: var(--fonte-corpo);
+    font-size: 3rem;
+    color: var(--cor-principal);
+}
+
+/* Card de Perfil */
+.profile-card {
+    background-color: var(--cor-principal);
+    color: var(--cor-card-claro);
+    border-radius: 30px;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid var(--cor-card-claro);
+    object-fit: cover;
+}
+
+.profile-text h2 {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+}
+
+.profile-text p {
+    font-size: 1.15rem;
+    line-height: 1.8rem;
+    text-align: justify;
+    hyphens: auto;
+}
+
+/* Ícones de Tecnologia (os círculos vermelhos) */
+.tech-icons {
+    font-size: 3rem;
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Banner de Informação */
+.info-banner {
+    background-color: var(--cor-principal);
+    color: var(--cor-card-claro);
+    padding: 50px;
+    border-radius: 30px;
+    text-align: justify;
+    hyphens: auto;
+    font-size: 1.2rem;
+    margin-bottom: 60px;
+    max-width: 800px;
+    width: 100%;
+    margin-left: auto;
+}
+
+/* Sistema de Abas */
+.tabs {
+    display: flex; /* Puxa as abas para cima para sobrepor o container */
+}
+
+.tab-button {
+    border: none;
+    padding: 30px;
+    font-family: var(--fonte-corpo);
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 30px 30px 0 0;
+    cursor: pointer;
+    background-color: rgb(213, 219, 179);
+    color: var(--cor-principal);
+}
+
+.tab-button.active {
+    background-color: var(--cor-principal);
+    color: var(--cor-card-claro);
+    padding: 30px 50px;
+    font-size: 1.7rem;
+}
+
+/* Container do Conteúdo */
+.content-container {
+    background-color: var(--cor-principal);
+    display: flex;
+    justify-content: center;
+    border-radius: 0 30px 30px 30px;
+    padding: 100px;
+    margin-bottom: 20px;
+}
+
+/* Esconde o conteúdo das abas que não estão ativas */
+.tab-content {
+    display: none;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Card de Projeto */
+.project-card {
+    background-color: var(--cor-card-claro);
+    border-radius: 30px;
+    padding: 40px;
+    display: flex;
+    max-width: 1000px;
+    width:100%;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 50px;
+}
+
+.media-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project-media {
+    flex-shrink: 0;
+    width: 450px;
+    height: 337.5px;
+    background-color: #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: #999;
+}
+
+.project-media img,
+.project-media video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-media img{
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.project-media img:hover{
+    transform: scale(1.03);
+}
+
+.project-info h3 {
+    font-size: 1.7rem;
+    color: var(--cor-principal);
+    margin-bottom: 10px;
+}
+
+.project-info h4 {
+    font-size: 1rem;
+    color: var(--cor-texto);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.project-info p {
+    text-align: justify;
+    hyphens: auto;
+    line-height: 1.5;
+}
+
+.lightbox {
+    display: none; /* Começa escondido por padrão */
+    position: fixed; /* Fica fixo na tela, mesmo com scroll */
+    z-index: 1000; /* Garante que ele fique na frente de todo o resto */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+/* A imagem expandida dentro do lightbox */
+#lightbox-image {
+    max-width: 90%;
+    max-height: 85%;
+    border: 3px solid white;
+    border-radius: 5px;
+}
+
+/* O botão de fechar (o 'X') */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.lightbox-close:hover {
+    color: #ccc;
+}
+
+.flying-ufo {
+    scale: 1;
+    position: fixed;
+    width: 80px;
+    height: auto;
+    z-index: -1;
+    opacity: 0.8;
+    animation: fly-across 20s linear infinite, 
+               rocking 2s ease-in-out infinite;
+}
+
+@keyframes fly-across {
+    0% {
+        top: 20%;
+        left: -10%;
+    }
+
+    50% {
+        top: 30%;
+        left: 50%;
+    }
+
+    100% {
+        top: 40%;
+        left: 110%;
+    }
+}
+
+@keyframes rocking {
+    0% {
+        transform: translateY(0px) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(8deg);
+    }
+    
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+}
+
+@media (max-width: 875px){
+     /* Ajusta o padding geral do corpo em telas menores */
+    body {
+        padding: 20px 10px;
+    }
+
+    /* Reduz um pouco o tamanho do título principal */
+    header h1 {
+        font-size: 2.2rem;
+    }
+    
+    /* Faz o card de perfil empilhar a foto e o texto verticalmente */
+    .profile-card {
+        flex-direction: column; /* Muda a direção do flex para coluna */
+        padding: 30px;
+    }
+    
+    .profile-pic {
+        width: 150px; /* Pode diminuir um pouco a foto */
+        height: 150px;
+    }
+
+    .content-container {
+        padding: 40px;
+    }
+
+    .project-card {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .project-media {
+        width: 100%;
+        height: auto; /* A altura se ajusta automaticamente para manter a proporção da imagem/vídeo */
+        aspect-ratio: 16 / 9; /* Opcional: força uma proporção (ex: widescreen) */
+    }
+
+    .media-column {
+        width: 100%; /* A coluna de mídias também ocupa toda a largura */
+    }
+
+    /* Reduz o tamanho da fonte dos botões de aba */
+    .tab-button {
+        font-size: 1.2rem;
+        padding: 8px 15px;
+    }
+    .tab-button.active {
+        font-size: 1.3rem;
+    }
+}
