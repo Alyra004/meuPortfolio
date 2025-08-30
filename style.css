@@ -89,6 +89,25 @@ header h1 {
     margin-top: 15px;
 }
 
+.tech-icons a:link{
+    color: var(--cor-card-claro);
+    text-decoration: none;
+}
+
+.tech-icons a:visited{
+    color: var(--cor-card-claro);
+    text-decoration: none;
+}
+
+.tech-icons a:hover{
+    color: var(--cor-fundo);
+    scale: 1.03;
+}   
+
+.tech-icons a:active{
+    color: aquamarine;
+}
+
 /* Banner de Informação */
 .info-banner {
     background-color: var(--cor-principal);
