@@ -36,8 +36,9 @@ header {
 }
 
 header h1 {
-    font-family: var(--fonte-corpo);
+    font-family: var(--fonte-titulo);
     font-size: 3.5rem;
+    font-weight: bold;
     color: var(--cor-principal);
 }
 
