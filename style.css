@@ -138,6 +138,7 @@ header h1 {
     cursor: pointer;
     background-color: rgb(213, 219, 179);
     color: var(--cor-principal);
+    margin-right: 10px;
 }
 
 .tab-button.active {
@@ -153,14 +154,14 @@ header h1 {
     display: flex;
     justify-content: center;
     border-radius: 0 30px 30px 30px;
-    padding: 100px;
+    padding: 60px;
     margin-bottom: 20px;
 }
 
 /* Esconde o conteúdo das abas que não estão ativas */
 .tab-content {
     display: none;
-    max-height: 500px;
+    max-height: 600px;
     overflow-y: auto;
     padding-right: 15px;
 }
