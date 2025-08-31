@@ -162,6 +162,8 @@ header h1 {
 /* Esconde o conteúdo das abas que não estão ativas */
 .tab-content {
     display: none;
+    max-height: 700px;
+    overflow-y: auto;
     padding-right: 15px;
 }
 
